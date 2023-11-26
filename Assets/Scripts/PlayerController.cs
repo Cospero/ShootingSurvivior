@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController: MonoBehaviour
+public class PlayerController: Hp
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float shootInterval;
