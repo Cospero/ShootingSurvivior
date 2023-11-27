@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Hp : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class Hp : MonoBehaviour
     {
         Health -= damage;
         Health = Mathf.Clamp(Health, 0, maxHealth);
-        print("health changed:" + damage + "health:" + Health + ", " + name);
         if (isPlayer)
         {
             hpText.text = ($"{Health}/{maxHealth}");
@@ -39,6 +39,10 @@ public class Hp : MonoBehaviour
         if (IsDeath)
         {
             gameObject.SetActive(false);
+        }
+        if (isPlayer && IsDeath)
+        {
+            SceneManager.LoadScene(0);
         }
 
     

@@ -53,6 +53,21 @@ MonoBehaviour:
       type: 3}
     countMin: 2
     countMax: 3
+  - spawnTime: 4
+    enemyPrefab: {fileID: 7244432685299430168, guid: e0127c80740f863459066f30f39cd138,
+      type: 3}
+    countMin: 4
+    countMax: 6
+  - spawnTime: 20
+    enemyPrefab: {fileID: 7244432685299430168, guid: e0127c80740f863459066f30f39cd138,
+      type: 3}
+    countMin: 8
+    countMax: 10
+  - spawnTime: 35
+    enemyPrefab: {fileID: 7244432685299430168, guid: e0127c80740f863459066f30f39cd138,
+      type: 3}
+    countMin: 10
+    countMax: 12
 --- !u!1 &499047251320634959
 GameObject:
   m_ObjectHideFlags: 0
