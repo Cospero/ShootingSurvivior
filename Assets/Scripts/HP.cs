@@ -36,14 +36,14 @@ public class Hp : MonoBehaviour
         }
         
 
-        if (IsDeath)
+        if (IsDeath && !isPlayer)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
-        if (isPlayer && IsDeath)
+        /*if (isPlayer && IsDeath)
         {
             SceneManager.LoadScene(0);
-        }
+        }*/
 
     
 

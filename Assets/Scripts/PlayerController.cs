@@ -11,6 +11,8 @@ public class PlayerController: Hp
     [SerializeField] private float shootDelay;
 
 
+
+    private Transform enemyPos;
     private float shootTimer;
     
 
@@ -35,10 +37,12 @@ public class PlayerController: Hp
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && shootTimer >= shootDelay)
+        if (shootTimer >= shootDelay)
         {
+            EnemyManager.instance.FindClosiestEnemy();
+            enemyPos = EnemyManager.instance._closietsEnemy;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 shootDirection = mousePosition - transform.position;
+            Vector3 shootDirection = enemyPos.position - transform.position;
             shootDirection.z = 0;
 
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);

@@ -836,6 +836,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 019ab1af1d7a4b742a982c009534c058, type: 3}
+--- !u!4 &1166580275 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8740881232977191636, guid: cd9e8224469758d43b7ee7706fcb3455,
+    type: 3}
+  m_PrefabInstance: {fileID: 8740881232984100070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1292009839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1419,6 +1425,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 499047250923178638, guid: f82dbe6431a974b4e8d944efe81af549,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1166580275}
+    - target: {fileID: 499047250923178638, guid: f82dbe6431a974b4e8d944efe81af549,
+        type: 3}
+      propertyPath: SpawnRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 499047250923178638, guid: f82dbe6431a974b4e8d944efe81af549,
+        type: 3}
+      propertyPath: waves.Array.data[0].countMax
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 499047250923178638, guid: f82dbe6431a974b4e8d944efe81af549,
+        type: 3}
+      propertyPath: waves.Array.data[0].countMin
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 499047250923178639, guid: f82dbe6431a974b4e8d944efe81af549,
         type: 3}
