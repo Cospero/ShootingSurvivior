@@ -124,6 +124,8 @@ GameObject:
   - component: {fileID: 8740881232977191638}
   - component: {fileID: 8740881232977191637}
   - component: {fileID: 8740881232977191634}
+  - component: {fileID: 7598291413427557706}
+  - component: {fileID: 4075230873767438662}
   - component: {fileID: 8740881232977191635}
   m_Layer: 0
   m_Name: Player
@@ -235,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer: 1
   maxHealth: 100
+  _expShardPrefab: {fileID: 0}
   hpText: {fileID: 0}
   moveSpeed: 4
   shootInterval: 2
@@ -242,6 +245,43 @@ MonoBehaviour:
     type: 3}
   shootSpeed: 5
   shootDelay: 1
+--- !u!114 &7598291413427557706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740881232977191624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae26ccaa36c6d9e42816fbd2c703969e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootInterval: 0.5
+  bulletPrefab: {fileID: 3601594058805797083, guid: a6b09c6b7c3a06f47a96af416b990cf7,
+    type: 3}
+  shootSpeed: 4
+  shootDelay: 1
+--- !u!114 &4075230873767438662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740881232977191624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10478284911156a48b3ee5c9f12713fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epxTakingRange: 0
+  expLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  expLevel: 0
+  _expSlider: {fileID: 0}
+  _expText: {fileID: 0}
+  _levelText: {fileID: 0}
 --- !u!58 &8740881232977191635
 CircleCollider2D:
   m_ObjectHideFlags: 0

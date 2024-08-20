@@ -20,6 +20,9 @@ public class EnemyManager : MonoBehaviour
     private float _closestToPlayerDist;
     public Transform _closietsEnemy { get; private set; }
     private bool _enemyMoveFrame;
+
+    // only for test
+    private float enemySpeed=5; 
     
 
     public void AddTransformToList(Transform transform)
@@ -100,7 +103,7 @@ public class EnemyManager : MonoBehaviour
                 Rigidbody2D rigidbody2D = t.GetComponent<Rigidbody2D>();
                 Vector3 direction = (_player.position - t.position).normalized;
                 //t.position += direction * 2 * Time.deltaTime
-                rigidbody2D.MovePosition(rigidbody2D.position + (Vector2)direction*Time.deltaTime*UnityEngine.Random.Range(0.3f, 1f) * 10f);
+                rigidbody2D.MovePosition(rigidbody2D.position + (Vector2)direction*Time.deltaTime*UnityEngine.Random.Range(0.3f, 1f) * enemySpeed);
             } 
         }
     }

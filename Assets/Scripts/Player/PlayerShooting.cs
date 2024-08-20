@@ -2,37 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController: Hp
+public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
     [SerializeField] private float shootInterval;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootSpeed;
     [SerializeField] private float shootDelay;
 
 
-
     private Transform enemyPos;
     private float shootTimer;
-    
 
-    private void Update()
+    void Update()
     {
-        Move();
         Shoot();
-    }
-
-    private void Move()
-    {
-        float hor = Input.GetAxis("Horizontal");
-        float ver = Input.GetAxis("Vertical");
-        Vector3 step = new Vector3(hor, ver, 0);
-
-        transform.position += step * moveSpeed * Time.deltaTime;
-
-        
-
-        
     }
 
     private void Shoot()
@@ -48,6 +31,9 @@ public class PlayerController: Hp
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
             rbody.velocity = shootDirection.normalized * shootSpeed;
+            ProjectileBehaviour proj = bullet.GetComponent<ProjectileBehaviour>();
+            proj._chaneCount = 0;
+            proj._pirceCount = 1;
 
             shootTimer = 0f;
         }
@@ -55,5 +41,3 @@ public class PlayerController: Hp
         shootTimer += Time.deltaTime;
     }
 }
-
-

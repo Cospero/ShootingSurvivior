@@ -8,7 +8,8 @@ public class Hp : MonoBehaviour
 {
     [SerializeField] private bool isPlayer;
     [SerializeField] private float maxHealth;
-    
+    [SerializeField] private GameObject _expShardPrefab;
+
     public float Health { get; private set; }
 
     public bool IsDeath => Health <= 0;
@@ -34,10 +35,10 @@ public class Hp : MonoBehaviour
         {
             hpText.text = ($"{Health}/{maxHealth}");
         }
-        
 
         if (IsDeath && !isPlayer)
         {
+            Instantiate(_expShardPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         /*if (isPlayer && IsDeath)
