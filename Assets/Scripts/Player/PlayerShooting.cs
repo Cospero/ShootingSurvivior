@@ -11,11 +11,11 @@ public class PlayerShooting : MonoBehaviour
 
 
     private Transform enemyPos;
-    private float shootTimer;
+    private float shootTimer; 
 
     void Update()
     {
-        Shoot();
+        //Shoot();
     }
 
     private void Shoot()

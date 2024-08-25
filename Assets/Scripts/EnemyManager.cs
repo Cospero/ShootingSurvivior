@@ -64,8 +64,6 @@ public class EnemyManager : MonoBehaviour
             waveIndex++;
         }
 
-        Debug.Log(enemyPos.Count);
-
         MoveEnemies();
     }
 
