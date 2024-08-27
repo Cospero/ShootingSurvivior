@@ -1,0 +1,86 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+
+public class ItemManager : MonoBehaviour
+{
+    public Weapon[] weaponSlots = new Weapon[4];
+    public PassiveItem[] passiveItemSlots = new PassiveItem[4];
+    public Item[] itemSlots;
+    private Image[] weaponSlotImages;
+    private Image[] passiveItamesSlotImages;
+    [SerializeField] private GameObject weaponContainerUi;
+    [SerializeField] private GameObject passiveItemContainerUi;
+    //test
+    [SerializeField] private Sprite testWeaponSptire;
+    [SerializeField] private Image testWeaponImageUi;
+
+    private void Awake()
+    {
+        weaponSlotImages = weaponContainerUi.GetComponentsInChildren<Image>();
+        passiveItamesSlotImages = passiveItemContainerUi.GetComponentsInChildren<Image>();
+        itemSlots = new Item[weaponSlots.Length + passiveItemSlots.Length];
+    }
+
+    private void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (weaponSlots[i] != null)
+            {
+                weaponSlots[i].TryShoot();
+            }
+        }
+    }
+
+  
+
+    public void EquipItem(Item item)
+    {
+        if (item is Weapon && GetFreeSlotIndex(weaponSlots)!= null)
+        { 
+            int freeWeaponSlot = (int)GetFreeSlotIndex(weaponSlots);
+            weaponSlots[freeWeaponSlot] = (Weapon)item;
+            itemSlots[(int)GetFreeSlotIndex(itemSlots)] = item;
+            weaponSlotImages[freeWeaponSlot].sprite = item.itemSptite;    
+        }
+        else if (item is PassiveItem && GetFreeSlotIndex(passiveItemSlots) != null)
+        {
+            int frePassiveSlot = (int)GetFreeSlotIndex(passiveItemSlots);
+            passiveItemSlots[frePassiveSlot] = (PassiveItem)item;
+            itemSlots[(int)GetFreeSlotIndex(itemSlots)] = item;
+            passiveItamesSlotImages[frePassiveSlot].sprite = item.itemSptite;
+        }
+        else
+        {
+            return;
+        }   
+    }
+
+
+    private int? GetFreeSlotIndex (Item[] slots)
+    {
+        for(int i = 0; i<slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                return i;
+            }
+        }
+        return null;
+    }
+
+   private void ChangeSpriteTest()
+   {
+        testWeaponImageUi.sprite = testWeaponSptire;
+   }
+
+}

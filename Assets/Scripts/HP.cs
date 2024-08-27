@@ -7,19 +7,14 @@ using UnityEngine.SceneManagement;
 public class Hp : MonoBehaviour
 {
     [SerializeField] private bool isPlayer;
-    [SerializeField] private float maxHealth;
+    [SerializeField] protected float maxHealth;
     [SerializeField] private GameObject _expShardPrefab;
 
-    public float Health { get; private set; }
+    protected float Health;
 
     public bool IsDeath => Health <= 0;
 
-    public TMP_Text hpText;
-
-    private void Start()
-    {
-        hpText.text = ($"{Health}/{maxHealth}");
-    }
+    
 
     private void Awake()
     {
@@ -27,14 +22,11 @@ public class Hp : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+
+    public virtual void TakeDamage(float damage)
     {
         Health -= damage;
         Health = Mathf.Clamp(Health, 0, maxHealth);
-        if (isPlayer)
-        {
-            hpText.text = ($"{Health}/{maxHealth}");
-        }
 
         if (IsDeath && !isPlayer)
         {

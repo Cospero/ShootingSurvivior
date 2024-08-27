@@ -23,7 +23,7 @@ public class PlayerExpiriense : MonoBehaviour
     [SerializeField] GameObject LevelUpPanel;
     [SerializeField] GameObject UpdateGridLayout;
 
-    [SerializeField] private WeaponManager _weaponManager;
+    [SerializeField] private ItemManager _weaponManager;
 
     private void Start()
     {
@@ -72,7 +72,6 @@ public class PlayerExpiriense : MonoBehaviour
 
     private void UpdateLevelUi()
     {
-        Debug.Log("slider text " + _currentExp / _expToNewLvl);
         _expSlider.value= (float)(_currentExp/ (float)_expToNewLvl);
         _expText.text = ($"{_currentExp} / {_expToNewLvl}");
         _levelText.text= _currentLevel.ToString();
@@ -81,26 +80,28 @@ public class PlayerExpiriense : MonoBehaviour
     private void LevelUp()
     {
         LevelUpPanel.SetActive(true);
-        Time.timeScale = 0f;
-        LevelUpPanel.SetActive(true);
-        foreach (Weapon weapon in _weaponManager.weaponSlots)
+        
+        foreach (Item item in _weaponManager.itemSlots)
         {
-            if (weapon == null)
+            if (item == null)
             {
-                break;
+                continue;
             }
 
-            if(!weapon.ReachMaxLevel())
+            Debug.Log(!item.ReachMaxLevel());
+
+            if (!item.ReachMaxLevel())
             {
                 UpdatedItem updateItem = Instantiate(Resources.Load<UpdatedItem>("LevelUp/UpdatedSkill"), Vector3.zero, Quaternion.identity);
                 updateItem.transform.SetParent(UpdateGridLayout.transform);
-                updateItem.InitializeItem(weapon.weaponSprite, weapon.GetNextModificationText(), weapon.GetWeaponCurrentLevel().ToString());
+                updateItem.InitializeItem(item.itemSptite, item.GetNextModificationText(), item.GetWeaponCurrentLevel().ToString());
                 LevelUpItems.Add(updateItem.gameObject);
                 Button button = updateItem.GetComponentInChildren<Button>();
-                button.onClick.AddListener(() => weapon.ActivateNextModification());
+                button.onClick.AddListener(() => item.ActivateNextModification());
                 button.onClick.AddListener(() => CloseLevelUpPanel());
             }
         }
+        Time.timeScale = 0f;
     }
 
     private void CloseLevelUpPanel()

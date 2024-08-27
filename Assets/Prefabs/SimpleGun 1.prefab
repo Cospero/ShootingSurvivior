@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cecb3e93ffab134188f16bf503a6adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActiveItem: 0
+  itemSptite: {fileID: 21300000, guid: 49dcdaf371e8be9488575003b031f97b, type: 3}
   weaponName: BaseGun
   baseDamage: 20
   baseProjectileSize: 2
@@ -51,4 +53,3 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3601594058805797083, guid: ba1650ba70890ea4b95936f061ee83ad,
     type: 3}
   baseProjSpeed: 15
-  weaponSprite: {fileID: 21300070, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
