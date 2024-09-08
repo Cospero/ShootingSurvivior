@@ -10,23 +10,23 @@ public class Hp : MonoBehaviour
     [SerializeField] protected float maxHealth;
     [SerializeField] private GameObject _expShardPrefab;
 
-    protected float Health;
+    protected float currentHealth;
 
-    public bool IsDeath => Health <= 0;
+    public bool IsDeath => currentHealth <= 0;
 
     
 
     private void Awake()
     {
-        Health = maxHealth;
+        currentHealth = maxHealth;
         
     }
 
 
     public virtual void TakeDamage(float damage)
     {
-        Health -= damage;
-        Health = Mathf.Clamp(Health, 0, maxHealth);
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         if (IsDeath && !isPlayer)
         {

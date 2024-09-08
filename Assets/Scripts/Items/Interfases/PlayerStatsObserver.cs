@@ -6,6 +6,8 @@ using UnityEngine;
 
 public interface PlayerStatsObserver
 {
-    void OnHealthChanged(float newHealth);
+    void OnMaxHealthChanged(float newHealth);
     void OnSpeedChanged(float newSpeed);
+
+    void OnRegenChanged(float newRegen);
 }

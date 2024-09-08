@@ -235,7 +235,8 @@ GameObject:
   - component: {fileID: 8740881232977191634}
   - component: {fileID: 8740881232977191635}
   - component: {fileID: 1668438505}
-  - component: {fileID: 1668438511}
+  - component: {fileID: 314823400331809441}
+  - component: {fileID: 7872984437002951640}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -355,6 +356,7 @@ MonoBehaviour:
     type: 3}
   shootSpeed: 5
   shootDelay: 1
+  healthRegen: 1
   hpText: {fileID: 0}
 --- !u!58 &8740881232977191635
 CircleCollider2D:
@@ -394,7 +396,7 @@ MonoBehaviour:
   LevelUpPanel: {fileID: 0}
   UpdateGridLayout: {fileID: 0}
   _weaponManager: {fileID: 838407977}
---- !u!114 &1668438511
+--- !u!114 &314823400331809441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,13 +405,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 8740881232977191624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2a1420c3c79f44fa46d4480fd75c37, type: 3}
+  m_Script: {fileID: 11500000, guid: e4aff495d91412444a4f2003fd274fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveItemsCooldown: 0
+  ActiveItemsProjSpeed: 0
+  PlayerHealchRegen: 0
+  PlayerArmor: 0
+  PlayerMovementSpeed: 0
+  PlayerExpirienseModifire: 0
+  playerController: {fileID: 0}
+--- !u!114 &7872984437002951640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740881232977191624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4aff495d91412444a4f2003fd274fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveItemsCooldown: 100
   ActiveItemsProjSpeed: 100
-  PlayerMaxHealth: 0
-  PlayerHealchRegen: 10
-  PlayerArmor: 10
-  PlayerMovementSpeed: 10
+  PlayerHealchRegen: 100
+  PlayerArmor: 100
+  PlayerMovementSpeed: 100
   PlayerExpirienseModifire: 100
+  playerController: {fileID: 0}

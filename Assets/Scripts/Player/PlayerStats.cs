@@ -18,11 +18,32 @@ public class PlayerStats : MonoBehaviour, IStatSubject
             _playerMaxHealth = value;
             NotifyHealthChanged();
         } 
-    } 
+    }
 
-    public float PlayerHealchRegen;
+    private float _playerHealthRegen;
+    public float PlayerHealthRegen
+    {
+        get => _playerHealthRegen;
+        set
+        {
+            _playerHealthRegen = value;
+            NotifyRegenChanged();
+        }
+    }
+
+    private float _playerMoveSpeedModifire = 1;
+    public float PlayerMoveSpeedModifire
+    {
+        get => _playerMoveSpeedModifire;
+        set
+        {
+            _playerMoveSpeedModifire = value;
+            NotifySpeedChanged();
+        }
+    }
+
     public float PlayerArmor;
-    public float PlayerMovementSpeed;
+    
     public float PlayerExpirienseModifire;
 
     public static PlayerStats instance;
@@ -84,7 +105,7 @@ public class PlayerStats : MonoBehaviour, IStatSubject
     {
         foreach (var observer in playerObservers)
         {
-            observer.OnHealthChanged(PlayerMaxHealth);
+            observer.OnMaxHealthChanged(PlayerMaxHealth);
         }
     }
 
@@ -92,8 +113,15 @@ public class PlayerStats : MonoBehaviour, IStatSubject
     {
         foreach (var observer in playerObservers)
         {
-            observer.OnSpeedChanged(10);
+            observer.OnSpeedChanged(PlayerMoveSpeedModifire);
         }
     }
 
+    public void NotifyRegenChanged()
+    {
+        foreach(var observer in playerObservers)
+        {
+            observer.OnRegenChanged(PlayerHealthRegen);
+        }
+    }
 }

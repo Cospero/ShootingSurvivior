@@ -11,4 +11,5 @@ public interface IStatSubject
     void NotifyDamageChanged();
     void NotifyHealthChanged();
     void NotifySpeedChanged();
+    void NotifyRegenChanged();
 }

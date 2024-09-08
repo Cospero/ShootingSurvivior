@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cecb3e93ffab134188f16bf503a6adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveItem: 0
+  ActiveItem: 1
   itemSptite: {fileID: 21300000, guid: 49dcdaf371e8be9488575003b031f97b, type: 3}
-  weaponName: BaseGun
-  baseDamage: 10
+  itemName: SimpleGun
+  uniqueId: 1
+  baseDamage: 25
   baseProjectileSize: 2
   baseCooldown: 1
   projectilePrefab: {fileID: 3601594058805797083, guid: 356c99b2fbc8fff46b00081714f7c8c9,

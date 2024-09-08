@@ -10,11 +10,10 @@ public class UpdatedItem : MonoBehaviour
     [SerializeField] private TMP_Text WeaponName;
     [SerializeField] private TMP_Text WeaponLevel;
 
-    public void InitializeItem(Sprite weaponSptire, string weaponName, string weaponLevel)
+    public void InitializeItem(Sprite itemSprite, string itemLevel, string modDescription)
     {
-        WeaponImage.sprite = weaponSptire;
-        WeaponName.text = weaponName;
-        WeaponLevel.text = weaponLevel;
+        WeaponImage.sprite = itemSprite;
+        WeaponName.text = itemLevel;
+        WeaponLevel.text = modDescription;
     }
-
 }

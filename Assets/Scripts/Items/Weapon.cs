@@ -5,21 +5,17 @@ using System.Collections.Generic;
 
 public abstract class Weapon : Item
 {
-    public string weaponName;
     public float baseDamage;
     public float baseProjectileSize;
     public float baseCooldown;
     public GameObject projectilePrefab;
     public float baseProjSpeed;
 
-
     protected float currentDamage;
     protected float currentProjectileSize;
     protected float currentCooldown;
     protected float currentProjSpeed;
 
-    
-    
 
     protected float lastShotTime;
 
@@ -27,8 +23,6 @@ public abstract class Weapon : Item
 
     private bool canShoot;
     private bool canPirce;
-
-
 
     protected virtual void Start()
     {
@@ -95,5 +89,4 @@ public abstract class Weapon : Item
     {
         return currentCooldown;
     }
-
 }

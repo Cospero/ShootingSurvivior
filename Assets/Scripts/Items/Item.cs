@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -8,6 +9,9 @@ public class Item : MonoBehaviour
     public Sprite itemSptite;
     protected int currentModificationLevel = 0; // Текущий уровень модификации
     public List<Modification> modifications = new List<Modification>();
+    public string itemName;
+    public int uniqueId;
+
 
     protected virtual void ApplyCurrentModification()
     {
@@ -38,7 +42,7 @@ public class Item : MonoBehaviour
         ApplyCurrentModification();
     }
 
-    public int GetWeaponCurrentLevel()
+    public int GetItemCurrentLevel()
     {
         return currentModificationLevel;
     }

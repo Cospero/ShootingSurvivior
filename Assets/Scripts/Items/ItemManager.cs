@@ -14,9 +14,9 @@ public class ItemManager : MonoBehaviour
     private Image[] passiveItamesSlotImages;
     [SerializeField] private GameObject weaponContainerUi;
     [SerializeField] private GameObject passiveItemContainerUi;
-    //test
-    [SerializeField] private Sprite testWeaponSptire;
-    [SerializeField] private Image testWeaponImageUi;
+    [SerializeField] private GameObject weaponContainerOb;
+    public UnLockedItems unlockedItems;
+    
 
     private void Awake()
     {
@@ -43,8 +43,11 @@ public class ItemManager : MonoBehaviour
 
   
 
-    public void EquipItem(Item item)
+    public void EquipItem(Item new_item)
     {
+        Item item = Instantiate(new_item, transform.position, Quaternion.identity);
+        item.transform.SetParent(weaponContainerOb.transform, true);
+
         if (item is Weapon && GetFreeSlotIndex(weaponSlots)!= null)
         { 
             int freeWeaponSlot = (int)GetFreeSlotIndex(weaponSlots);
@@ -78,9 +81,43 @@ public class ItemManager : MonoBehaviour
         return null;
     }
 
-   private void ChangeSpriteTest()
-   {
-        testWeaponImageUi.sprite = testWeaponSptire;
-   }
+
+    public bool ItemSlotsFull()
+    {
+        foreach(Item item in itemSlots)
+        {
+            if(item == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool WeaponSlotsFull()
+    {
+        foreach(Item item in weaponSlots)
+        {
+            if(item == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool PassiveItemsSlotsFull()
+    {
+        foreach (Item item in passiveItemSlots)
+        {
+            if (item == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
 }
