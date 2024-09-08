@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389222b7bdee3fb45b688580b95a31bd, type: 3}
+  m_Name: unlockedItemsData
+  m_EditorClassIdentifier: 
+  unlockedWeapons:
+  - {fileID: 1989242889743312031, guid: 36d98e835d4f960448e14019580024c4, type: 3}
+  - {fileID: 1989242889743312031, guid: dd4ebac22e04ca74fac8a7271b87a1b1, type: 3}
+  unlockedPassiveItems:
+  - {fileID: 8880946625497659768, guid: 83f214f188c77544bb0bc8073d00b91d, type: 3}
+  - {fileID: 352150871581855867, guid: 5e45ae2d99fa4c74388789df9e7c2ab0, type: 3}
+  - {fileID: 2609183218579318020, guid: b4155bc9f0687c640b52721382db2ebb, type: 3}
