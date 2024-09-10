@@ -9,6 +9,10 @@ public class UnlockManager : MonoBehaviour
 
     private const string SaveKey = "UnlockedItems"; // Ключ для сохранения в PlayerPrefs
 
+    public Item[] allItems;
+
+    private List<Item> unlockedItems = new List<Item>();
+
     private void Awake()
     {
         LoadUnlockedItems(); // Загружаем разблокированные предметы при старте
@@ -25,10 +29,30 @@ public class UnlockManager : MonoBehaviour
         }
     }
 
+    public Item GetItemByID(int id)
+    {
+        foreach (Item item in allItems)
+        {
+
+            if (item.uniqueId == id)
+            {
+                return item;
+            }
+        }
+        //Debug.Log($"Item with ID {id} not found.");
+        return null;
+    }
+
     // Метод для проверки, разблокирован ли предмет
     public bool IsItemUnlocked(int itemID)
     {
         return unlockedItemIDs.Contains(itemID);
+    }
+
+    public List<Item> GetUnlockedItems()
+    {
+
+        return unlockedItems;
     }
 
     // Метод для сохранения разблокированных предметов
@@ -49,6 +73,26 @@ public class UnlockManager : MonoBehaviour
             string json = PlayerPrefs.GetString(SaveKey);
             ListWrapper wrapper = JsonUtility.FromJson<ListWrapper>(json);
             unlockedItemIDs = new HashSet<int>(wrapper.ids);
+            FillUnlockedItems();
+        }
+        
+    }
+
+
+    private void FillUnlockedItems()
+    {
+        if(unlockedItems != null)
+        {
+            unlockedItems.Clear();
+        }
+        foreach(int id in unlockedItemIDs)
+        {
+            Debug.Log("id " + id);
+            Item? item = GetItemByID(id);
+            if(item != null)
+            {
+                unlockedItems.Add(item);
+            }
         }
     }
 

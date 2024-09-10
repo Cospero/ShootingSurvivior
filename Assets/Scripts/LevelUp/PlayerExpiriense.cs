@@ -27,6 +27,8 @@ public class PlayerExpiriense : MonoBehaviour
 
     [SerializeField] private ItemManager _itemManager;
 
+    public UnlockManager UnlockManager;
+
     private void Start()
     {
         UpdateLevelUi();
@@ -81,6 +83,7 @@ public class PlayerExpiriense : MonoBehaviour
 
     private void LevelUp()
     {
+        Debug.Log(UnlockManager.GetUnlockedItems().Count);
         LevelUpPanel.SetActive(true);
 
         List<Item> itemsToLevelUp = new List<Item>();
@@ -193,10 +196,11 @@ public class PlayerExpiriense : MonoBehaviour
             {
                 foreach (Weapon slotItem in weaponSlots)
                 {
-                    if (weapon.GetInstanceID() == slotItem.GetInstanceID())
+                    /*if (weapon.GetInstanceID() == slotItem.GetInstanceID())
                     {
                         break;
-                    }
+                    }*/
+
                     NewItems.Add(weapon);
 
                 }
@@ -216,11 +220,12 @@ public class PlayerExpiriense : MonoBehaviour
             {
                 foreach (PassiveItem slotItem in passiveItemSlot)
                 {
-                    if (passiveItem.GetInstanceID() == slotItem.GetInstanceID())
+                    /*if (passiveItem.GetInstanceID() == slotItem.GetInstanceID())
                     {
                         break;
-                    }
-                    NewItems.Add(passiveItem);
+                    }*/
+
+                    //NewItems.Add(passiveItem);
                 }
                 /*if (!weaponSlots.Contains(passiveItem))
                 {

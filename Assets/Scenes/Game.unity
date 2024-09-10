@@ -1408,6 +1408,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb07908bc519dad4ea434489abed8c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allItems:
+  - {fileID: 8880946625497659768, guid: 83f214f188c77544bb0bc8073d00b91d, type: 3}
+  - {fileID: 352150871581855867, guid: 5e45ae2d99fa4c74388789df9e7c2ab0, type: 3}
+  - {fileID: 2609183218579318020, guid: b4155bc9f0687c640b52721382db2ebb, type: 3}
+  - {fileID: 1989242889743312031, guid: 36d98e835d4f960448e14019580024c4, type: 3}
+  - {fileID: 1989242889743312031, guid: dd4ebac22e04ca74fac8a7271b87a1b1, type: 3}
 --- !u!114 &1237146390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,7 +1441,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1292009839
 PrefabInstance:
@@ -2413,37 +2419,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811585942}
   m_CullTransparentMesh: 1
---- !u!1 &1860575093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1860575094}
-  m_Layer: 0
-  m_Name: UnlockedItems
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1860575094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860575093}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.762748, y: -0.37519315, z: -0.04666939}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013548022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,12 +2671,12 @@ PrefabInstance:
     - target: {fileID: 499047250923178638, guid: f82dbe6431a974b4e8d944efe81af549,
         type: 3}
       propertyPath: waves.Array.data[0].countMax
-      value: 1000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 499047250923178638, guid: f82dbe6431a974b4e8d944efe81af549,
         type: 3}
       propertyPath: waves.Array.data[0].countMin
-      value: 1000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 499047250923178638, guid: f82dbe6431a974b4e8d944efe81af549,
         type: 3}
@@ -3226,11 +3201,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 838407974, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: m_Name
+      value: ItemManager
+      objectReference: {fileID: 0}
     - target: {fileID: 838407976, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
       propertyPath: testItem
       value: 
       objectReference: {fileID: 1989242889743312031, guid: 36d98e835d4f960448e14019580024c4,
         type: 3}
+    - target: {fileID: 838407976, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: unlockManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
       propertyPath: unlockedItems
       value: 
@@ -3248,6 +3231,35 @@ PrefabInstance:
       propertyPath: weaponContainerUi
       value: 
       objectReference: {fileID: 18393064}
+    - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: allItems.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: allItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 8880946625497659768, guid: 83f214f188c77544bb0bc8073d00b91d,
+        type: 3}
+    - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: allItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 352150871581855867, guid: 5e45ae2d99fa4c74388789df9e7c2ab0,
+        type: 3}
+    - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: allItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 2609183218579318020, guid: b4155bc9f0687c640b52721382db2ebb,
+        type: 3}
+    - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: allItems.Array.data[3]
+      value: 
+      objectReference: {fileID: 1989242889743312031, guid: 36d98e835d4f960448e14019580024c4,
+        type: 3}
+    - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: allItems.Array.data[4]
+      value: 
+      objectReference: {fileID: 1989242889743312031, guid: dd4ebac22e04ca74fac8a7271b87a1b1,
+        type: 3}
     - target: {fileID: 838407977, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
       propertyPath: passiveItemContainerUi
       value: 
@@ -3272,6 +3284,10 @@ PrefabInstance:
       propertyPath: _itemManager
       value: 
       objectReference: {fileID: 838407977}
+    - target: {fileID: 1668438505, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
+      propertyPath: UnlockManager
+      value: 
+      objectReference: {fileID: 1237146389}
     - target: {fileID: 1668438505, guid: cd9e8224469758d43b7ee7706fcb3455, type: 3}
       propertyPath: UpdateGridLayout
       value: 

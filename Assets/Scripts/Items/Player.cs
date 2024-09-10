@@ -7,11 +7,15 @@ public class Player : MonoBehaviour
     public ItemManager weaponManager;
     public GameObject weaponSlots;
     private Weapon weaponTest;
+    [SerializeField] UnlockManager unlockManager;
     [SerializeField] Item testItem;
 
     void Start()
     {
         weaponManager.EquipItem(testItem);
+
+        //unlockManager.UnlockItem(testItem.uniqueId);
+
 
 
         /*PassiveItem passiveItem2 = Instantiate(Resources.Load<PassiveItem>("Weapons/RegenItem"), transform.position, Quaternion.identity);
@@ -26,7 +30,8 @@ public class Player : MonoBehaviour
     //test
     public void LevelUpFirstWeapon()
     {
-        weaponTest.ActivateNextModification();
+        Debug.Log(unlockManager.IsItemUnlocked(testItem.uniqueId));
+        //weaponTest.ActivateNextModification();
     }
     //test
     public void GiveNewWeapon()
