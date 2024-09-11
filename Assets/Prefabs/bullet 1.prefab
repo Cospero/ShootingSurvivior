@@ -106,7 +106,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  _chaneCount: 2
+  _chainCount: 4
   _pirceCount: 0
 --- !u!50 &-953111079190830979
 Rigidbody2D:

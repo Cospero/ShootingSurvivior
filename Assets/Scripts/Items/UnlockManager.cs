@@ -18,6 +18,13 @@ public class UnlockManager : MonoBehaviour
         LoadUnlockedItems(); // Загружаем разблокированные предметы при старте
     }
 
+    //test
+    private void Start()
+    {
+        TestUnlockAllItems();
+        Debug.Log(unlockedItemIDs.Count + " count unlocked items");
+    }
+
     // Метод для разблокировки предмета
     public void UnlockItem(int itemID)
     {
@@ -49,12 +56,6 @@ public class UnlockManager : MonoBehaviour
         return unlockedItemIDs.Contains(itemID);
     }
 
-    public List<Item> GetUnlockedItems()
-    {
-
-        return unlockedItems;
-    }
-
     // Метод для сохранения разблокированных предметов
     private void SaveUnlockedItems()
     {
@@ -73,28 +74,44 @@ public class UnlockManager : MonoBehaviour
             string json = PlayerPrefs.GetString(SaveKey);
             ListWrapper wrapper = JsonUtility.FromJson<ListWrapper>(json);
             unlockedItemIDs = new HashSet<int>(wrapper.ids);
-            FillUnlockedItems();
+
         }
         
     }
 
 
-    private void FillUnlockedItems()
+    //test
+    private void TestUnlockAllItems()
     {
-        if(unlockedItems != null)
+        foreach(Item item in allItems)
         {
-            unlockedItems.Clear();
-        }
-        foreach(int id in unlockedItemIDs)
-        {
-            Debug.Log("id " + id);
-            Item? item = GetItemByID(id);
-            if(item != null)
-            {
-                unlockedItems.Add(item);
-            }
+            UnlockItem(item.uniqueId);
         }
     }
+
+    public List<Item> GetNewUnlockedItems(Item[] currentItems)
+    {
+        List<int> currentItemsId = new List<int>();
+        List<Item> newItems = new List<Item>();
+
+        foreach (Item item in currentItems)
+        {
+            if(item != null)
+            {
+                currentItemsId.Add(item.uniqueId); 
+            }
+        }
+
+        foreach(int id in unlockedItemIDs)
+        {
+            if (!currentItemsId.Contains(id))
+            {
+                newItems.Add(GetItemByID(id));
+            }
+        }
+        return newItems;
+    }
+
 
     // Класс-обертка для сериализации множества
     [System.Serializable]

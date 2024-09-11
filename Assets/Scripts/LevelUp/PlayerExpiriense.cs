@@ -83,7 +83,6 @@ public class PlayerExpiriense : MonoBehaviour
 
     private void LevelUp()
     {
-        Debug.Log(UnlockManager.GetUnlockedItems().Count);
         LevelUpPanel.SetActive(true);
 
         List<Item> itemsToLevelUp = new List<Item>();
@@ -189,50 +188,31 @@ public class PlayerExpiriense : MonoBehaviour
             return NewItems;
         }
 
-        if(!_itemManager.WeaponSlotsFull())
+        List<Item> possableNewItems = UnlockManager.GetNewUnlockedItems(_itemManager.itemSlots);
+
+        if (!_itemManager.WeaponSlotsFull())
         {
-            Weapon[] weaponSlots = _itemManager.weaponSlots;
-            foreach (Weapon weapon in _itemManager.unlockedItems.unlockedWeapons)
+            foreach (Item item in possableNewItems)
             {
-                foreach (Weapon slotItem in weaponSlots)
+                if (item is Weapon)
                 {
-                    /*if (weapon.GetInstanceID() == slotItem.GetInstanceID())
-                    {
-                        break;
-                    }*/
-
-                    NewItems.Add(weapon);
-
+                    NewItems.Add(item);
                 }
-
-                    
-                /*if(!weaponSlots.Contains(weapon))
-                {
-                    NewItems.Add(weapon);
-                }*/
             }
         }
 
         if (!_itemManager.PassiveItemsSlotsFull())
         {
-            PassiveItem[] passiveItemSlot = _itemManager.passiveItemSlots;
-            foreach (PassiveItem passiveItem in _itemManager.unlockedItems.unlockedPassiveItems)
+            foreach (Item item in possableNewItems)
             {
-                foreach (PassiveItem slotItem in passiveItemSlot)
+                if (item is PassiveItem)
                 {
-                    /*if (passiveItem.GetInstanceID() == slotItem.GetInstanceID())
-                    {
-                        break;
-                    }*/
-
-                    //NewItems.Add(passiveItem);
+                    NewItems.Add(item);
                 }
-                /*if (!weaponSlots.Contains(passiveItem))
-                {
-                    NewItems.Add(passiveItem);
-                }*/
             }
         }
+
+
         return NewItems;
     }
 

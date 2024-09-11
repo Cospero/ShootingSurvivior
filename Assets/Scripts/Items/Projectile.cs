@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
 
 
     public LayerMask enemyLayer;  
-    public float _chaneCount;   
+    public float _chainCount;   
     public float _pirceCount;
 
     private void Start()
@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         {
             hp.TakeDamage(damage);
             _lastHitEnemy.Add(hp.gameObject);
-            if (_chaneCount < 1 && _pirceCount < 1)
+            if (_chainCount < 1 && _pirceCount < 1)
             {
                 Destroy(gameObject);
             }
@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
             else
             {
                 Chain();
-                _chaneCount--;
+                _chainCount--;
             }
         }
     }
