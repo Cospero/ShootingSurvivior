@@ -17,9 +17,6 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private GameObject weaponContainerOb;
     public UnLockedItems unlockedItems;
 
-    
-
-
     private void Awake()
     {
         weaponSlotImages = weaponContainerUi.GetComponentsInChildren<Image>();
@@ -42,8 +39,6 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
-
-  
 
     public void EquipItem(Item new_item)
     {
@@ -69,7 +64,6 @@ public class ItemManager : MonoBehaviour
             return;
         }   
     }
-
 
     private int? GetFreeSlotIndex (Item[] slots)
     {
