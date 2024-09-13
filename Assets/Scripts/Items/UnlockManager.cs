@@ -9,9 +9,20 @@ public class UnlockManager : MonoBehaviour
 
     private const string SaveKey = "UnlockedItems"; // Ключ для сохранения в PlayerPrefs
 
+    public Item[] allItems;
+
+    private List<Item> unlockedItems = new List<Item>();
+
     private void Awake()
     {
         LoadUnlockedItems(); // Загружаем разблокированные предметы при старте
+    }
+
+    //test
+    private void Start()
+    {
+        TestUnlockAllItems();
+        Debug.Log(unlockedItemIDs.Count + " count unlocked items");
     }
 
     // Метод для разблокировки предмета
@@ -23,6 +34,20 @@ public class UnlockManager : MonoBehaviour
             SaveUnlockedItems();
             Debug.Log($"Item {itemID} unlocked!");
         }
+    }
+
+    public Item GetItemByID(int id)
+    {
+        foreach (Item item in allItems)
+        {
+
+            if (item.uniqueId == id)
+            {
+                return item;
+            }
+        }
+        //Debug.Log($"Item with ID {id} not found.");
+        return null;
     }
 
     // Метод для проверки, разблокирован ли предмет
@@ -49,8 +74,44 @@ public class UnlockManager : MonoBehaviour
             string json = PlayerPrefs.GetString(SaveKey);
             ListWrapper wrapper = JsonUtility.FromJson<ListWrapper>(json);
             unlockedItemIDs = new HashSet<int>(wrapper.ids);
+
+        }
+        
+    }
+
+
+    //test
+    private void TestUnlockAllItems()
+    {
+        foreach(Item item in allItems)
+        {
+            UnlockItem(item.uniqueId);
         }
     }
+
+    public List<Item> GetNewUnlockedItems(Item[] currentItems)
+    {
+        List<int> currentItemsId = new List<int>();
+        List<Item> newItems = new List<Item>();
+
+        foreach (Item item in currentItems)
+        {
+            if(item != null)
+            {
+                currentItemsId.Add(item.uniqueId); 
+            }
+        }
+
+        foreach(int id in unlockedItemIDs)
+        {
+            if (!currentItemsId.Contains(id))
+            {
+                newItems.Add(GetItemByID(id));
+            }
+        }
+        return newItems;
+    }
+
 
     // Класс-обертка для сериализации множества
     [System.Serializable]
