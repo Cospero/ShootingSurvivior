@@ -43,4 +43,8 @@ public class Scen : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+
+
 }
