@@ -14,11 +14,6 @@ public class AudioManager : MonoBehaviour
     public Slider volumeSlider;
     private const string VolumePrefKey = "GameVolume";
     
-    private void Awake()
-    {
-        
-    }
-
 
     void Start()
     {
