@@ -1,13 +1,34 @@
+using TMPro;
 using UnityEngine;
+using YG;
 
 public class StatUpgradeManager : MonoBehaviour
 {
     public PlayerStats playerStats;          // Ссылка на PlayerStats для изменения характеристик
     public StatUpgradeData[] upgrades;       // Массив всех доступных улучшений
+    [SerializeField] private TMP_Text currentGoldText;
+    private int currentGold;
 
     private void Start()
     {
         LoadUpgrades();                      // Загрузка данных улучшений из сохранений
+        currentGold = YandexGame.savesData.gold;
+        if(currentGoldText != null )
+        {
+            currentGoldText.text = currentGold.ToString();
+        }
+    }
+
+    public void AddGold(int gold)
+    {
+        currentGold += gold;
+        if (currentGoldText != null)
+        {
+            currentGoldText.text = currentGold.ToString();
+        }
+
+        YandexGame.savesData.gold = currentGold;
+        YandexGame.SaveProgress();
     }
 
     public void UpgradeStat(int index)
@@ -29,6 +50,8 @@ public class StatUpgradeManager : MonoBehaviour
         switch (upgrade.statName)
         {
             case "Health":
+                //YandexGame.savesData.playerMaxHealth += 20f;
+                Debug.Log("UpgradeHJealth");
                 //playerStats.maxHealth += 10; // Пример применения
                 break;
             case "AttackDamage":
@@ -40,6 +63,7 @@ public class StatUpgradeManager : MonoBehaviour
                 // Добавьте другие апгрейды по мере необходимости
         }
         //playerStats.SaveStats(); // Сохранение изменений характеристик
+        YandexGame.SaveProgress();
     }
 
     private void LoadUpgrades()
