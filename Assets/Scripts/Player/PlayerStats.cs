@@ -42,12 +42,9 @@ public class PlayerStats : MonoBehaviour, IStatSubject
         }
     }
 
-    public float PlayerArmor;
-    
+    public float PlayerArmor;   
     public float PlayerExpirienseModifire;
-
     public static PlayerStats instance;
-
     public PlayerController playerController;
 
     private List<WeaponStatsObserver> weaponObservers = new List<WeaponStatsObserver>();

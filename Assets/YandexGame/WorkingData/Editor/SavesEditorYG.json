@@ -1,0 +1,20 @@
+{
+    "idSave": 4,
+    "isFirstSession": false,
+    "language": "en",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "gold": 80,
+    "playerMaxHealth": 100.0,
+    "PlayerArmor": 0.0,
+    "_playerMoveSpeedModifire": 1.0,
+    "ActiveItemsCooldownMulti": 1.0,
+    "ActiveItemsProjSpeedMulti": 1.0,
+    "PlayerExpirienseModifire": 0.0
+}
