@@ -51,9 +51,10 @@ public class PlayerController : Hp, PlayerStatsObserver
     {
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
-        Vector2 step = new Vector2(hor, ver);
+        Vector2 step = new Vector2(hor, ver).normalized;
 
         rb.velocity = step * Time.deltaTime * _moveSpeedMulti * _moveSpeedConst;
+        Debug.Log(step + " Velocity");
         //transform.position += step * moveSpeed * Time.deltaTime;
     }
 

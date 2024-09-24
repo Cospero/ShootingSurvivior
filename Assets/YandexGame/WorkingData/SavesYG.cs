@@ -20,6 +20,7 @@ namespace YG
 
         //Глобал
         public int gold = 0;
+        public string saveStats;
 
         //Игрок
         public float playerMaxHealth = 100;
