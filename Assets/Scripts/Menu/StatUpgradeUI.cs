@@ -32,7 +32,7 @@ public class StatUpgradeUI : MonoBehaviour
 
     private void GenerateUpgradeUI()
     {
-        foreach (StatUpgradeData upgradeData in upgradeManager.upgrades)
+        foreach (StatUpgradeData upgradeData in upgradeManager.statUpgrades)
         {
             GameObject item = Instantiate(upgradeItemPrefab, upgradeGrid);
             UpgradeItemUI itemUI = item.GetComponent<UpgradeItemUI>();
